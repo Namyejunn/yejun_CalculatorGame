@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity Web Player | Slice</title>
+    <title>Unity Web Player | Calculator</title>
   </head>
   <body style="text-align: center; padding: 0; border: 0; margin: 0;">
     <canvas id="unity-canvas" width=1080 height=2340 tabindex="-1" style="width: 1080px; height: 2340px; background: #231F20"></canvas>
-    <script src="Build/Cal.loader.js"></script>
+    <script src="Build/z.loader.js"></script>
     <script>
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
         // Mobile device style: fill the whole browser client area with the game canvas:
@@ -22,19 +22,23 @@
         canvas.style.position = "fixed";
 
         document.body.style.textAlign = "left";
+
       }
 
       createUnityInstance(document.querySelector("#unity-canvas"), {
         arguments: [],
-        dataUrl: "Build/Cal.data",
-        frameworkUrl: "Build/Cal.framework.js",
-        codeUrl: "Build/Cal.wasm",
+        dataUrl: "Build/z.data",
+        frameworkUrl: "Build/z.framework.js",
+        codeUrl: "Build/z.wasm",
         streamingAssetsUrl: "StreamingAssets",
-        companyName: "Slice",
-        productName: "Slice",
+        companyName: "Calculator",
+        productName: "Calculator",
         productVersion: "0.1.0",
         // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
         // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
+      }).then((unityInstance) => {
+      }).catch((message) => {
+        alert(message);
       });
     </script>
   </body>
